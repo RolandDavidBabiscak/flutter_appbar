@@ -8,30 +8,54 @@ import 'dart:convert';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final themeStr = await rootBundle.loadString('assets/ThemeAlbum.json');
-  
-  final themeJson = jsonDecode(themeStr);
-  
-  final theme = ThemeDecoder.decodeThemeData(themeJson);
-  
-  runApp(MyApp(theme : theme));
+  final lightThemeStr = await rootBundle.loadString('assets/ThemeLight.json');
+  final darkThemeStr = await rootBundle.loadString('assets/ThemeDark.json');
+
+  final lightThemeJson = jsonDecode(lightThemeStr);
+  final darkThemeJson = jsonDecode(darkThemeStr);
+
+  final lightTheme = ThemeDecoder.decodeThemeData(lightThemeJson)!;
+  final darkTheme = ThemeDecoder.decodeThemeData(darkThemeJson)!;
+
+  runApp(MyApp(lightTheme: lightTheme, darkTheme: darkTheme));
 }
 
 class MyApp extends StatelessWidget {
-  final ThemeData? theme;
-  
-    const MyApp({Key? key, required this.theme}) : super(key: key);
+  final ThemeData lightTheme;
+  final ThemeData darkTheme;
+
+  const MyApp({Key? key, required this.lightTheme, required this.darkTheme}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      home: const MyHomePage(title: 'Gestion des albums'),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeController,
+      builder: (context, themeMode, _) {
+        return MaterialApp(
+          title: 'Gestion des albums',
+          debugShowMaterialGrid: false,
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: themeMode,
+          home: const MyHomePage(title: 'Gestion des albums'),
+        );
+      },
     );
   }
 }
+
+class ThemeController extends ValueNotifier<ThemeMode> {
+  ThemeController() : super(ThemeMode.light);
+
+  void toggleTheme() {
+    value = value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    
+  }
+}
+
+final themeController = ThemeController();
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
