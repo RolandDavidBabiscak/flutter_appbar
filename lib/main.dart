@@ -8,8 +8,8 @@ import 'dart:convert';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final lightThemeStr = await rootBundle.loadString('assets/ThemeLight.json');
-  final darkThemeStr = await rootBundle.loadString('assets/ThemeDark.json');
+  final lightThemeStr = await rootBundle.loadString('assets/appainter_theme_light.json');
+  final darkThemeStr = await rootBundle.loadString('assets/appainter_theme_night.json');
 
   final lightThemeJson = jsonDecode(lightThemeStr);
   final darkThemeJson = jsonDecode(darkThemeStr);
@@ -53,7 +53,6 @@ class ThemeController extends ValueNotifier<ThemeMode> {
     
   }
 }
-
 final themeController = ThemeController();
 
 
@@ -87,11 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.white,
           ),
           SizedBox(width: 10),
-          Icon(
-            Icons.lightbulb_sharp,
-            color: Colors.white,
+          IconButton(
+            icon: Icon(Icons.lightbulb, color: Colors.white),
+          onPressed:((){
+            themeController.toggleTheme();
+          }),
           ),
-          SizedBox(width: 10),
         ],
       ),
       body: Center(
