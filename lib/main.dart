@@ -96,12 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
           Align(
             alignment: Alignment.topCenter,
             child: Card(
-              color: Colors.green,
+              color: const Color.fromARGB(255, 100, 170, 102),
               child: Row(
                 children: <Widget>[
                   Image(image: AssetImage('assets/img/imgAccueil/vinyltransp.webp'), height: 100,width: 100),
