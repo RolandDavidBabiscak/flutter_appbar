@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+  bool _isHomePage = true;
 
   @override
   Widget build(BuildContext context) {
@@ -132,10 +133,60 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ),
+            Padding(
+              padding: EdgeInsets.all(1),
+              child: Card(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                child: ListTile(
+                  title: Text(
+                    'News',
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 16,
+                      fontFamily: 'Arial',
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Dernières actualités',
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 14,
+                      fontFamily: 'Arial',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(1),
+              child: Card(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                child: ListTile(
+                  title: Text(
+                    'Version 1 en cours de développement',
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 16,
+                      fontFamily: 'Arial',
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Wait and see',
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 14,
+                      fontFamily: 'Arial',
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      
+      
+      floatingActionButton: _isHomePage ? null : FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
