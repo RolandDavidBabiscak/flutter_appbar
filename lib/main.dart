@@ -98,12 +98,38 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          Align(
+            alignment: Alignment.topCenter,
+            child: Card(
+              color: Colors.green,
+              child: Row(
+                children: <Widget>[
+                  Image(image: AssetImage('assets/img/imgAccueil/vinyltransp.webp'), height: 100,width: 100),
+                    Expanded(
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Bienvenue sur l\'application\n',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'de gestion des albums',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
