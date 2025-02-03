@@ -3,6 +3,7 @@ import 'Custom_Icons.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+import 'settings.dart';
 
 
 Future<void> main() async {
@@ -184,7 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      
+
       
       floatingActionButton: _isHomePage ? null : FloatingActionButton(
         onPressed: _incrementCounter,
@@ -195,6 +196,12 @@ class _MyHomePageState extends State<MyHomePage> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
+            if (index == 2) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsPage()),
+              );
+            }
           });
         },
         selectedIndex: currentPageIndex,
@@ -208,9 +215,9 @@ class _MyHomePageState extends State<MyHomePage> {
             label: "Liste des albums",
           ),
           NavigationDestination(
-            selectedIcon: const Icon(Icons.bookmark),
-            icon: const Icon(Icons.gamepad_sharp),
-            label: "Parametre",
+
+            icon: Icon(MyFlutterApp.cog),
+            label: "Paramètres",
           ),
         ],
       ),
