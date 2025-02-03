@@ -66,7 +66,7 @@ class _ListeAlbumState extends State<ListeAlbum> {
       backgroundColor: const Color.fromARGB(255, 235, 244, 232),      
       body: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
