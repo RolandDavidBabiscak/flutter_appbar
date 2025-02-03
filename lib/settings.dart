@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
-import 'Custom_Icons.dart'; // Importez votre fichier d'icônes personnalisées
+import 'Custom_Icons.dart';
+import 'package:json_theme/json_theme.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
+import 'main.dart';
+
 
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
+
+
 class _SettingsPageState extends State<SettingsPage> {
-  int currentPageIndex = 2; // Assurez-vous que l'index correspond à la page des paramètres
+  int currentPageIndex = 2;
   bool _isHomePage = false;
 
     @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
       ),
       backgroundColor: const Color.fromARGB(255, 235, 244, 232),
       body: Center(

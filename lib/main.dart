@@ -4,7 +4,7 @@ import 'package:json_theme/json_theme.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'settings.dart';
-
+import 'liste_album.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,7 +55,6 @@ class ThemeController extends ValueNotifier<ThemeMode> {
   }
 }
 final themeController = ThemeController();
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -185,7 +184,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-
       
       floatingActionButton: _isHomePage ? null : FloatingActionButton(
         onPressed: _incrementCounter,
@@ -201,6 +199,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute(builder: (context) => SettingsPage()),
               );
+            }
+            else if (index == 1) {
+              
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ListeAlbum()),
+              );
+            }
+            else if (index == 0) {
+              Navigator.pop(context);
             }
           });
         },
@@ -224,3 +232,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
