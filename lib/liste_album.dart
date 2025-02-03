@@ -70,7 +70,7 @@ class _ListeAlbumState extends State<ListeAlbum> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    color: Colors.blue,
+                    color: const Color.fromARGB(255, 214, 168, 246),
                     alignment: Alignment.center,
                     child: ListView(
                       shrinkWrap: true,
@@ -93,7 +93,7 @@ class _ListeAlbumState extends State<ListeAlbum> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
-            if (index == 2) {
+            if (index == 1) {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ListeAlbum()),
@@ -136,7 +136,7 @@ class Album extends StatelessWidget {
          padding: EdgeInsets.all(2), height: 120,  child: Card( 
             child: Row(
                mainAxisAlignment: MainAxisAlignment.spaceEvenly, children:    <Widget>[
-                  Image.asset("images/" +image!), Expanded(
+                  Image.asset("img/" +image!), Expanded(
                      child: Container(
                         padding: EdgeInsets.all(5), child: Column(
                            mainAxisAlignment: MainAxisAlignment.spaceEvenly, 

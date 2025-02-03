@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.topCenter,
             child: Card(
-              color: const Color.fromARGB(255, 100, 170, 102),
+              color: const Color.fromARGB(255, 200, 237, 184),
               child: Row(
                 children: <Widget>[
                   Image(image: AssetImage('assets/img/imgAccueil/vinyltransp.webp'), height: 100,width: 100),
@@ -114,14 +114,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           TextSpan(
                             text: 'Bienvenue sur l\'application\n',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: const Color.fromARGB(255, 0, 0, 0),
                               fontSize: 20,
                             ),
                           ),
                           TextSpan(
                             text: 'de gestion des albums',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: const Color.fromARGB(255, 0, 0, 0),
                               fontSize: 20,
                             ),
                           ),
